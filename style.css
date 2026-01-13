@@ -1,43 +1,3 @@
-<!--body {
-font-family: Arial, sans-serif;
-margin: 0;
-background: #f4f4f4;
-}
-header{
-    background: #ff6f61;
-    color: white;
-    padding: 15px;
-}
-nav a {
-    color: white;
-    margin-right: 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
-.hero {
-    text-align: center;
-    padding: 60px 20px;
-}
-.btn {
-    background: #25d366;
-    color: white;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 18px;
-}
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #222;
-    color: white;
-}
--->
-
-
-
-
-
 :root {
   --amarillo: #f7c600;
   --oscuro: #333;
@@ -225,4 +185,5 @@ footer {
       background-attachment: scroll;
 }
 }
+
 }
