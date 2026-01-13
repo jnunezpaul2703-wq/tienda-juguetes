@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carros | Tienda de Juguetes</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<!-- Buscador - Lupa -->
+
+<script>
+    const buscador = document.getElementById('buscador');
+    const producto = document.querySelectorAll('.producto');
+
+    buscador.addEventListener('keyup',() => {
+        const texto = buscador.value.toLowerCase();
+    
+    productos.forEach(producto => {
+        const nombre = producto.dataset.nombre;
+        producto.style.display = nombre.includes(texto)
+        ? 'block'
+        : 'none';
+        
+    });
+});
+</script>
+
+<!-- Buscador - Lupa -->
+<body>
+
+<header>
+  <h1>🧸 Tienda de Juguetes</h1>
+  <nav>
+    <a href="../index.html">Inicio</a>
+    <a href="../productos.html">Productos</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="../contacto.html">Contacto</a>
+    <a href="https://wa.me/967727954" target="_blank">WhatsApp</a>
+  </nav>
+</header>
+
+<section class="hero">
+<section style="text-align: center; padding: 20px;">
+    <input
+    type="text"
+    id="buscador"
+    placeholder="Buscar producto..."
+    style="padding: 12px; width: 80"; max-width:400px; font-size:16px:"
+    >
+</section>
+  <h2>🚗 Carros y Vehículos</h2>
+  <p>Velocidad, diversión y aventura</p>
+</section>
+
+<section class="productos">
+
+  <!-- PRODUCTO 1 -->
+  <div class="producto" data-nombre="carro a control remoto">
+    <img src="../img/carros/carrito-rc-01.jpg" alt="Carro RC">
+    <h3>Carro a control remoto</h3>
+    <p>S/ 120.00</p>
+    <a class="btn"
+   href="https://wa.me/967727954?text=Hola%2C%20quiero%20comprar%3A%0A🧸%20Carro%20a%20control%20remoto%0A💰%20Precio%3A%20S/%20120.00%0A📦%20Categoría%3A%20Carros"
+   target="_blank">
+   Pedir por WhatsApp
+    </a>
+  </div>
+
+  <!-- PRODUCTO 2 -->
+  <div class="producto" data-nombre="carro a pilas">
+    <img src="../img/carros/camion-bomberos.jpg" alt="Camión de bomberos">
+    <h3>Camión de bomberos</h3>
+    <p>S/ 55.00</p>
+    <a class="btn"
+   href="https://wa.me/967727954?text=Hola%2C%20quiero%20comprar%3A%0A🧸%20Carro%20a%20control%20remoto%0A💰%20Precio%3A%20S/%20120.00%0A📦%20Categoría%3A%20Carros"
+   target="_blank">
+   Pedir por WhatsApp
+    </a>
+  </div>
+
+  <!-- PRODUCTO 3 -->
+  <div class="producto">
+    <img src="../img/carros/pista-autos.jpg" alt="Pista de autos">
+    <h3>Pista de autos</h3>
+    <p>S/ 89.00</p>
+    <a class="btn"
+       href="https://wa.me/967727954?text=Hola%20quiero%20la%20Pista%20de%20autos">
+       Pedir por WhatsApp
+    </a>
+  </div>
+
+</section>
+
+<footer>
+  <p>© 2026 Tienda de Juguetes</p>
+</footer>
+
+</body>
+</html>
