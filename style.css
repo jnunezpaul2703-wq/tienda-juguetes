@@ -1,31 +1,35 @@
+/* ===== BASE PARA FOOTER PEGADO ===== */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
 
+/* ===== VARIABLES ===== */
 :root {
   --amarillo: #f7c600;
-  --oscuro: #333;
-  --gris: #f4f4f4;
+  --oscuro: #2b2b2b;
+  --blanco: #ffffff;
+  --gris: #f5f5f5;
+  --acento: #ff6f00;
 }
 
+/* ===== BODY ===== */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  margin: 0;
   color: var(--oscuro);
-
-  background:
-    linear-gradient(
-      rgba(255, 255, 255, 0.85),
-      rgba(255, 255, 255, 0.85)
-    ),
-    url("img/fondo-oficial.png");
-
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-
+  background-color: var(--gris);
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(247,198,0,0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 40%, rgba(247,198,0,0.06) 0%, transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(247,198,0,0.05) 0%, transparent 50%);
 }
 
+/* ===== HEADER ===== */
 header {
   background: var(--amarillo);
-  padding: 15px 30px;
+  padding: 18px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,7 +37,7 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 24px;
+  font-size: 26px;
 }
 
 nav a {
@@ -41,76 +45,129 @@ nav a {
   margin-left: 20px;
   text-decoration: none;
   font-weight: 600;
+  position: relative;
+}
+
+/* Subrayado animado */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  background: var(--oscuro);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
+/* ===== HERO ===== */
 .hero {
-  background: white;
+  background: var(--blanco);
   text-align: center;
-  padding: 70px 20px;
+  padding: 80px 20px;
+  animation: fadeUp 0.9s ease both;
 }
 
 .hero h2 {
-  font-size: 32px;
+  font-size: 34px;
   margin-bottom: 10px;
 }
 
 .hero p {
   font-size: 18px;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
+/* Animación hero */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== BOTONES ===== */
 .btn {
   background: #25d366;
   color: white;
-  padding: 14px 30px;
+  padding: 15px 32px;
   text-decoration: none;
   border-radius: 30px;
   font-size: 18px;
   font-weight: bold;
+  display: inline-block;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn:hover {
-  opacity: 0.9;
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-footer {
-  background: #222;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  font-size: 14px;
+/* ===== MAIN ===== */
+main {
+  flex: 1; /* Empuja el footer hacia abajo */
+  max-width: 1100px;
+  margin: 40px auto;
+  background: var(--blanco);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
+.info h3 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
 
+.info p {
+  font-size: 17px;
+  line-height: 1.6;
+}
 
-
-
-
-
-
-
+/* ===== PRODUCTOS ===== */
 .productos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
-  padding: 40px;
+  padding: 20px;
 }
 
 .producto {
-  background: white;
+  position: relative; /* Para el badge */
+  background: var(--blanco);
   padding: 20px;
   text-align: center;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.15);
 }
 
 .producto img {
   width: 100%;
   border-radius: 10px;
+  transition: transform 0.35s ease;
+}
+
+.producto:hover img {
+  transform: scale(1.08);
 }
 
 .producto h3 {
@@ -122,7 +179,36 @@ footer {
   font-weight: bold;
 }
 
+/* ===== BADGE NUEVO / OFERTA ===== */
+.badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--acento);
+  color: var(--blanco);
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transform: rotate(-10deg);
+  transition: transform 0.3s ease, background 0.3s ease;
+  z-index: 2;
+}
 
+.producto:hover .badge {
+  transform: rotate(0deg) scale(1.1);
+  background: #ff8c00;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 18px;
+  font-size: 14px;
+}
 
 /* ===== RESPONSIVE MOBILE ===== */
 @media (max-width: 768px) {
@@ -133,17 +219,16 @@ footer {
   }
 
   nav {
-    margin-top: 10px;
+    margin-top: 12px;
   }
 
   nav a {
-    display: inline-block;
     margin: 8px 10px;
     font-size: 16px;
   }
 
   .hero {
-    padding: 40px 15px;
+    padding: 50px 15px;
   }
 
   .hero h2 {
@@ -152,6 +237,11 @@ footer {
 
   .hero p {
     font-size: 16px;
+  }
+
+  main {
+    margin: 20px;
+    padding: 25px;
   }
 
   .productos {
@@ -173,7 +263,7 @@ footer {
 
   .btn {
     width: 100%;
-    display: inline-block;
+    text-align: center;
     padding: 14px;
     font-size: 17px;
   }
@@ -181,9 +271,4 @@ footer {
   input[type="text"] {
     width: 95% !important;
   }
-  @media (max-width: 768px){
-    body {
-      background-attachment: scroll;
-}
-}
 }
